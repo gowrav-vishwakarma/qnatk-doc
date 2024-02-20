@@ -1,0 +1,23 @@
+site_name: Qnatk Docs
+theme: readthedocs
+nav:
+  - Home: index.md
+  - Qnatk Quasar:
+    - Getting Started:
+      - Installation: quasar/installation.md
+      - Quick Start: quasar/quick-start.md
+      - useDataTable: quasar/use-data-table.md
+      - useForm: quasar/use-form.md
+  - Qnatk NestJs:
+    - Getting Started:
+      - Installation: getting-started/installation.md
+      - Quick Start: getting-started/quick-start.md
+  - API Reference:
+    - qnatk: api-reference/qnatk.md
+    - qnatk.utils: api-reference/qnatk.utils.md
+  - About:
+    - License: about/license.md
+    - Changelog: about/changelog.md
+    - Contributing: about/contributing.md
+    - Code of Conduct: about/code-of-conduct.md
+    - Security: about/security.md
