@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Quick Start - Qnatk Docs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Quick Start";
+        var mkdocs_page_input_path = "quasar/quick-start.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Qnatk Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Qnatk Quasar</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Getting Started</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../installation/">Installation</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Quick Start</a>
+    <ul class="current">
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../use-data-table/">useDataTable</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../use-form/">useForm</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Qnatk NestJs</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Getting Started</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../../getting-started/installation.md">Installation</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../getting-started/quick-start.md">Quick Start</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API Reference</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../api-reference/qnatk.md">qnatk</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../api-reference/qnatk.utils.md">qnatk.utils</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">About</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../about/license.md">License</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../about/changelog.md">Changelog</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../about/contributing.md">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../about/code-of-conduct.md">Code of Conduct</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../about/security.md">Security</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Qnatk Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>Qnatk Quasar &raquo;</li>
+          <li>Getting Started &raquo;</li>
+      <li>Quick Start</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="qnatk-q-quickstart">Qnatk-Q QuickStart</h2>
+<p>Qnatk is just a set of composables and only a few components. To make most of it you can opt in for best practices for your project as follows:</p>
+<p>Qnatk consists of following composables:</p>
+<ul>
+<li><code>useDataTable</code>: A composable to handle data table operations </li>
+<li><code>useForm</code>: A composable to handle form operations</li>
+</ul>
+<p>Before using the composables it is always advisable to create a wrapper around the composables with your own api (axios instance).</p>
+<p>create a file under composable in src named anything like this <code>use-MyForm.js</code> and add following code:    </p>
+<pre><code class="language-javascript">import { useForm } from 'src/qnatk/composibles/use-form';
+import { api } from 'boot/axios';
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function useMMForm(
+  initialUrl: string,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  defaultValues: Record&lt;string, any&gt;,
+  METHOD: 'post' | 'get' = 'post'
+) {
+  return useForm(api, initialUrl, defaultValues, METHOD);
+}
+</code></pre>
+<p>In the same way you can create a wrapper for <code>useDataTable</code> composable.</p>
+<pre><code class="language-javascript">import { useDatatable } from 'src/qnatk/composibles/use-datatable';
+import { TransformedSortOption } from 'src/qnatk/QnatkListDTO';
+import { api } from 'boot/axios';
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function useMMDataTable&lt;T = any&gt;(
+  baseModel: string,
+  baseUrl = 'qnatk',
+  transformSortBy: (sortBy: string) =&gt; string | TransformedSortOption = (
+    sortBy
+  ) =&gt; sortBy
+) {
+  return useDatatable&lt;T&gt;(api, baseModel, baseUrl, transformSortBy);
+}
+</code></pre>
+<blockquote>
+<p>This saves you to import api in every component and you can work with multiple api's in your project.</p>
+</blockquote>
+<p>And following components:</p>
+<ul>
+<li><code>AutoComplete</code>: A component to handle auto complete operations</li>
+<li><code>SingleRecordActions</code>: A component to handle single record actions</li>
+<li><code>NoRecordActions</code>: A component to handle no record actions</li>
+<li><code>MultiRecordActions</code>: A component to handle multi record actions</li>
+<li><code>SimpleForm</code>: A component to handle simple form operations</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../installation/" class="btn btn-neutral float-left" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../use-data-table/" class="btn btn-neutral float-right" title="useDataTable">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../installation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../use-data-table/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

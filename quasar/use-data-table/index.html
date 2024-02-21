@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>useDataTable - Qnatk Docs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "useDataTable";
+        var mkdocs_page_input_path = "quasar/use-data-table.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Qnatk Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Qnatk Quasar</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Getting Started</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../installation/">Installation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../quick-start/">Quick Start</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">useDataTable</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#fetchoptions">fetchOptions</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../use-form/">useForm</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Qnatk NestJs</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Getting Started</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../../getting-started/installation.md">Installation</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../getting-started/quick-start.md">Quick Start</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API Reference</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../api-reference/qnatk.md">qnatk</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../api-reference/qnatk.utils.md">qnatk.utils</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">About</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../about/license.md">License</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../about/changelog.md">Changelog</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../about/contributing.md">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../about/code-of-conduct.md">Code of Conduct</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../about/security.md">Security</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Qnatk Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>Qnatk Quasar &raquo;</li>
+          <li>Getting Started &raquo;</li>
+      <li>useDataTable</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="usedatatable">useDataTable</h1>
+<p>A composable to handle data table operations.</p>
+<blockquote>
+<p>useDatatable<code>&lt;T&gt;</code>(
+  api: AxiosInstance,
+  baseModel: string,
+  baseUrl = 'qnatk',
+  transformSortBy: (sortBy: string) =&gt; string | TransformedSortOption = (
+    sortBy
+  ) =&gt; sortBy
+) 
+</p>
+</blockquote>
+<p>Returns</p>
+<blockquote>
+<ul>
+<li>data: <code>Ref&lt;T[]&gt;</code> - The data to be displayed in the table.</li>
+<li>pagination: <code>Ref&lt;QPagination&gt;</code> - The pagination options.</li>
+<li>loading: <code>Ref&lt;boolean&gt;</code> - The loading state of the table.</li>
+<li>fetchData: () =&gt; <code>Promise&lt;void&gt;</code> - A function to fetch the data.</li>
+<li>onRequest: (request: QTableRequest) =&gt; <code>void</code> - A function to handle the table request.</li>
+<li>downloadData: () =&gt; <code>Promise&lt;void&gt;</code> - A function to download the data as a CSV file.</li>
+<li>callBacks: DataTableCallBacks - A set of callback functions to handle table operations.</li>
+<li>
+<ul>
+<li>downloadRowIterator: (row: T) =&gt; <code>Record&lt;string, any&gt;</code> - A function to transform the row data for the CSV download.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>rowIterator: (row: T) =&gt; <code>Record&lt;string, any&gt;</code> - A function to transform the row data for the table.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>aclCan: (actionName: string, baseModel: string): <code>boolean</code> =&gt; true - A function to check if the user has permission to perform an action.</li>
+</ul>
+</li>
+<li>fetchOptions: <code>Ref&lt;ModelOptions&gt;</code> - The fetch options to be used when fetching the data.</li>
+<li>lacHookName: <code>Ref&lt;string&gt;</code> - The name of the hook to be used when fetching the data.</li>
+<li>error: <code>Ref&lt;Error | null&gt;</code> - The error state of the table.</li>
+</ul>
+</blockquote>
+<h3 id="fetchoptions">fetchOptions</h3>
+<p>The fetch options to be used when fetching the data. it mimics sequelize model options with additional properties like include, where, subQuery, etc.
+following operators are supported in where clause:</p>
+<ul>
+<li>$or</li>
+<li>$and</li>
+<li>$eq</li>
+<li>$ne</li>
+<li>$gte</li>
+<li>$gt</li>
+<li>$lte</li>
+<li>$lt</li>
+<li>$not</li>
+<li>$in</li>
+<li>$notIn</li>
+<li>$like</li>
+<li>$notLike</li>
+<li>$iLike</li>
+<li>$notILike</li>
+<li>$regexp</li>
+<li>$notRegexp</li>
+<li>$iRegexp</li>
+<li>$notIRegexp</li>
+<li>$between</li>
+<li>$notBetween</li>
+<li>$fullText</li>
+</ul>
+<p>To check null values you can use following (Case Sensitive) values:</p>
+<p>'$null$' and '$notNull$' as follows</p>
+<pre><code class="language-ts">fetchOptions.value = {
+  include: [
+    {
+      model: 'User',
+      as: 'createdBy',
+      attributes: ['id', 'name'],
+    },
+  ],
+
+  where: {
+    $or: {
+      taskId: props.taskId,
+      parentActivityId: props.taskId,
+    },
+    parentActivityId: '$null$',
+  },
+  order: ['createdAt', 'desc'],
+};
+</code></pre>
+<pre><code class="language-vue">
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;q-btn
+      label=&quot;Download CSV&quot;
+      icon=&quot;cloud_download&quot;
+      @click=&quot;downloadData&quot;
+    /&gt;
+    &lt;q-table
+      title=&quot;User List&quot;
+      :rows=&quot;data&quot;
+      :columns=&quot;columns&quot;
+      :pagination.sync=&quot;pagination&quot;
+      :loading=&quot;loading&quot;
+      row-key=&quot;id&quot;
+      @request=&quot;onRequest&quot;
+    &gt;
+    &lt;/q-table&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup lang=&quot;ts&quot;&gt;
+//  Other imports
+
+import { useMyDatatable } from 'src/composables/use-my-datatable-wrapper';
+
+const {
+  data,
+  pagination,
+  loading,
+  fetchData,
+  onRequest,
+  downloadData,
+  callBacks,
+  lacHookName
+} = useMyDatatable('YourBackendModelName');
+
+
+// lacHookName [optional]
+// 1) To bypass default autoApi calling and reach to named hook 
+// 2) with ?BeInformed will distinguish the request in network for easy debug and monitoring
+lacHookName.value = '?BeInformed'; 
+
+const userStore = useUserStore();
+
+
+// Define default table pagination sort options, then follows table columns sorting
+pagination.value.sortBy = 'lastActivityCreatedAt';
+pagination.value.descending = true;
+
+
+// Define table columns
+const columns:QTableColumn[] = [
+  { name: 'name', label: 'Name', field: 'name', align: 'left', sortable: true },
+  { name: 'email', label: 'Email', field: 'email', align: 'left', sortable: true },
+  // Add more columns as needed
+  { name: 'actions', label: 'Actions', field: 'actions', align: 'right', sortable: false },
+];
+
+// Custom row iterator for CSV download to flatten nested objects if needed
+callBacks.downloadRowIterator = (row) =&gt; ({
+  Name: row.name,
+  Email: row.email,
+  // Transform or add additional fields as needed for the download
+});
+
+fetchOptions.value = {
+  include: [
+    {
+      model: 'User',
+      as: 'assignedTo',
+      attributes: ['id', 'name', 'departmentId'],
+    },
+    {
+      model: 'User',
+      as: 'validator',
+      attributes: ['id', 'name', 'departmentId'],
+    },
+    {
+      model: 'User',
+      as: 'createdBy',
+      attributes: ['id', 'name', 'departmentId'],
+    },
+    {
+      model: 'TaskUser',
+      as: 'stakeholders',
+      attributes: ['id', 'userId'],
+    },
+  ],
+  where: {
+    $or: {
+      validatorId: userStore.user?.id,
+      '$stakeholders.userId$': userStore.user?.id,
+      status: ['assigned', 'validated'],
+    },
+    organizationId: userStore.user?.organizationId,
+  },
+  subQuery: false,
+};
+
+onMounted(() =&gt; {
+  fetchData();
+});
+
+&lt;/script&gt;
+
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../quick-start/" class="btn btn-neutral float-left" title="Quick Start"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../use-form/" class="btn btn-neutral float-right" title="useForm">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../quick-start/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../use-form/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

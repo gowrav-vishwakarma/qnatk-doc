@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>useForm - Qnatk Docs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "useForm";
+        var mkdocs_page_input_path = "quasar/use-form.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Qnatk Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Qnatk Quasar</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Getting Started</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../installation/">Installation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../quick-start/">Quick Start</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../use-data-table/">useDataTable</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">useForm</a>
+    <ul class="current">
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Qnatk NestJs</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Getting Started</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../../getting-started/installation.md">Installation</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../getting-started/quick-start.md">Quick Start</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API Reference</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../api-reference/qnatk.md">qnatk</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../api-reference/qnatk.utils.md">qnatk.utils</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">About</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../about/license.md">License</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../about/changelog.md">Changelog</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../about/contributing.md">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../about/code-of-conduct.md">Code of Conduct</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../about/security.md">Security</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Qnatk Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>Qnatk Quasar &raquo;</li>
+          <li>Getting Started &raquo;</li>
+      <li>useForm</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="useform">useForm</h1>
+<p>A composable to handle form operations.</p>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;q-page class=&quot;row items-center justify-center&quot;&gt;
+    &lt;q-form @submit.prevent=&quot;validateAndSubmit&quot;&gt;
+      &lt;q-card class=&quot;q-ma-md&quot; style=&quot;max-width: 400px&quot;&gt;
+        &lt;q-card-section&gt;
+          &lt;div class=&quot;text-h6&quot;&gt;Register&lt;/div&gt;
+          &lt;q-input
+            v-model=&quot;values.email&quot;
+            label=&quot;Email&quot;
+            :error=&quot;!!errors.email&quot;
+            :error-message=&quot;errors.email ? errors.email.join('; ') : ''&quot;
+          /&gt;
+          &lt;q-input
+            v-model=&quot;values.password&quot;
+            label=&quot;Password&quot;
+            type=&quot;password&quot;
+            :rules=&quot;[
+              (val) =&gt;
+                val.length &gt; 5 || 'Password must be at least 6 characters',
+            ]&quot;
+          /&gt;
+          &lt;q-input
+            v-model=&quot;values.confirmPassword&quot;
+            label=&quot;Confirm Password&quot;
+            type=&quot;password&quot;
+            :rules=&quot;[
+              (val) =&gt;
+                (val === values.password &amp;&amp; !!val) || 'Passwords do not match',
+            ]&quot;
+          /&gt;
+        &lt;/q-card-section&gt;
+        &lt;q-card-actions align=&quot;right&quot;&gt;
+          &lt;q-btn label=&quot;Login&quot; color=&quot;secondary&quot; @click=&quot;goToLogin&quot; flat /&gt;
+          &lt;q-btn label=&quot;Register&quot; color=&quot;primary&quot; type=&quot;submit&quot; /&gt;
+        &lt;/q-card-actions&gt;
+      &lt;/q-card&gt;
+    &lt;/q-form&gt;
+  &lt;/q-page&gt;
+&lt;/template&gt;
+
+&lt;script setup lang=&quot;ts&quot;&gt;
+// Assuming you have a similar setup for registration
+import { useMMForm } from 'src/composibles/use-mm-form';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const { values, validateAndSubmit, callbacks, errors } = useMMForm(
+  '/auth/register',
+  {
+    email: '',
+    password: '',
+  }
+);
+
+callbacks.onSuccess = () =&gt; {
+  // Handle successful registration
+  console.log('Registration success');
+  router.push('/login');
+};
+
+const goToLogin = () =&gt; {
+  router.push('/login'); // Navigate to the registration page
+};
+&lt;/script&gt;
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../use-data-table/" class="btn btn-neutral float-left" title="useDataTable"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../use-data-table/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
