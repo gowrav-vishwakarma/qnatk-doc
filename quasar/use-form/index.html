@@ -119,6 +119,62 @@
               
                 <h1 id="useform">useForm</h1>
 <p>A composable to handle form operations.</p>
+<blockquote>
+<p>useForm<ResponseFormat extends Record\<string, any>>(api: AxiosInstance, initialUrl: string, defaultValues: Record<string, any>, METHOD: 'post' | 'get' = 'post')</p>
+</blockquote>
+<p>Returns</p>
+<blockquote>
+<ul>
+<li>values: <code>Ref&lt;Record&lt;string, any&gt;&gt;</code> - The form values.</li>
+<li>errors: <code>Ref&lt;Record&lt;string, string[]&gt;&gt;</code> - The form errors.</li>
+<li>isLoading: <code>Ref&lt;boolean&gt;</code> - The loading state of the form.</li>
+<li>validateAndSubmit: (resetForm = true) =&gt; <code>Promise&lt;void&gt;</code> - A function to validate and submit the form.</li>
+<li>callbacks: FormCallBacks - A set of callback functions to handle form operations.</li>
+<li>
+<ul>
+<li>onSuccess: (response: ResponseFormat) =&gt; <code>void</code> - A function to handle the form submission success.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>onError: (error: AxiosError) =&gt; <code>void</code> - A function to handle the form submission error.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>beforeSubmit: () =&gt; <code>void</code> - A function to be called before the form submission.</li>
+</ul>
+</li>
+<li>updateUrl: (url: string) =&gt; <code>void</code> - A function to update the form url.</li>
+<li>responseData: <code>Ref&lt;Response&gt;</code> - The response data from the form submission.</li>
+<li>resetForm: () =&gt; <code>void</code> - A function to reset the form values and errors.</li>
+<li>validateResponse: (data, DTOClass) =&gt; <code>Promise&lt;ResponseFormat&gt;</code> - A function to validate the response data.</li>
+</ul>
+</blockquote>
+<p>While useForm can be used to submit any form with values there are a few special urls that uses the autoApi system to get data like</p>
+<ul>
+<li>{baseUrl}/{BaseModel}/list</li>
+<li>{baseUrl}/{BaseModel}/list-and-count</li>
+<li>{baseUrl}/{BaseModel}/create</li>
+<li>{baseUrl}/{BaseModel}/create-with-files</li>
+<li>{baseUrl}/{BaseModel}/actionExecute/{actionName}/[skipModelLoad=false]</li>
+<li>{baseUrl}/{BaseModel}/update/{id}/[primaryField=id]</li>
+<li>{baseUrl}/{BaseModel}/delete/{id}/[primaryField=id]</li>
+</ul>
+<p>to utilize the autoApi system the defaultValues should be treated like fetchOptions and the url should be one of the above mentioned urls.</p>
+<p>ie</p>
+<pre><code class="language-ts">// remmber we are not passing api and baseUrl as we are using our own wrapper function here
+const { values, validateAndSubmit, callbacks, errors } = useMMForm(
+  '/Model/list',
+  {
+    where: {
+      name: {
+        $like: 'John',
+      },
+    },
+  } as ModelOptions
+);
+</code></pre>
 <pre><code class="language-vue">&lt;template&gt;
   &lt;q-page class=&quot;row items-center justify-center&quot;&gt;
     &lt;q-form @submit.prevent=&quot;validateAndSubmit&quot;&gt;
