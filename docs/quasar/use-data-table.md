@@ -2,6 +2,81 @@
 
 A composable to handle data table operations.
 
+> useDatatable< T>(
+  api: AxiosInstance,
+  baseModel: string,
+  baseUrl = 'qnatk',
+  transformSortBy: (sortBy: string) => string | TransformedSortOption = (
+    sortBy
+  ) => sortBy
+) 
+> 
+> Returns
+> * data: Ref<T[]> - The data to be displayed in the table.
+> * pagination: Ref<QPagination> - The pagination options.
+> * loading: Ref<boolean> - The loading state of the table.
+> * fetchData: () => Promise<void> - A function to fetch the data.
+> * onRequest: (request: QTableRequest) => void - A function to handle the table request.
+> * downloadData: () => Promise<void> - A function to download the data as a CSV file.
+> * callBacks: DataTableCallBacks - A set of callback functions to handle table operations.
+> * * downloadRowIterator: (row: T) => Record<string, any> - A function to transform the row data for the CSV download.
+> * * rowIterator: (row: T) => Record<string, any> - A function to transform the row data for the table.
+> * * aclCan: (actionName: string, baseModel: string): boolean => true - A function to check if the user has permission to perform an action.
+> * fetchOptions: Ref<QFetchOptions> - The fetch options to be used when fetching the data.
+> * lacHookName: Ref<string> - The name of the hook to be used when fetching the data.
+> * error: Ref<Error | null> - The error state of the table.
+
+### fetchOptions 
+The fetch options to be used when fetching the data. it mimics sequelize model options with additional properties like include, where, subQuery, etc.
+following operators are supported in where clause:
+* $or
+* $and
+* $eq
+* $ne
+* $gte
+* $gt
+* $lte
+* $lt
+* $not
+* $in
+* $notIn
+* $like
+* $notLike
+* $iLike
+* $notILike
+* $regexp
+* $notRegexp
+* $iRegexp
+* $notIRegexp
+* $between
+* $notBetween
+* $fullText
+
+To check null values you can use following (Case Sensitive) values:
+
+'$null$' and '$notNull$' as follows
+
+```ts
+fetchOptions.value = {
+  include: [
+    {
+      model: 'User',
+      as: 'createdBy',
+      attributes: ['id', 'name'],
+    },
+  ],
+
+  where: {
+    $or: {
+      taskId: props.taskId,
+      parentActivityId: props.taskId,
+    },
+    parentActivityId: '$null$',
+  },
+  order: ['createdAt', 'desc'],
+};
+```
+
 ```vue
 
 <template>
